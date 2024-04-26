@@ -1,9 +1,12 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const app = express();
+const cors = require('cors');
 
 const uri = "mongodb://root:ayush321@192.168.1.101:27017/?authMechanism=DEFAULT";
 
+// Enable CORS for all requests
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.send('Hello, World!');
