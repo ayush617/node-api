@@ -38,7 +38,8 @@ app.post('/leads', async (req, res) => {
         const result = await collection.insertOne(req.body);
 
         // Respond with the inserted data
-        res.json(result.ops);
+        // res.json(result.ops);
+        res.status(200).send('Request received successfully');
     } catch (err) {
         console.error(err);
         res.status(500).send('Internal Server Error');
