@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 const app = express();
 const cors = require('cors');
 
-const uri = "mongodb://root:ayush321@localhost:27017/?authMechanism=DEFAULT";
+const uri = "mongodb://root:ayush321@my_mongodb_container:27017/?authMechanism=DEFAULT";
 
 // Enable CORS for all requests
 app.use(cors());
