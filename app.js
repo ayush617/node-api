@@ -12,9 +12,9 @@ app.use(corsMiddleware);
 
 app.use(express.json());
 
-app.use('/api', authRoutes);
-app.use('/api', leadRoutes);
-app.use('/api', crudRoutes);
+app.use('/', authRoutes);
+app.use('/', leadRoutes);
+app.use('/', crudRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello, World!');
