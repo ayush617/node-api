@@ -52,20 +52,12 @@ const login = async (req, res) => {
             result.organizationName = result3.name;
         }
 
-        // const date = new Date();
-        // const year = date.getFullYear();
-        // const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-        // const day = String(date.getDate()).padStart(2, '0');
-
-        // let todayDate = `${year}-${month}-${day}`;
-
-        // const collection3 = db.collection("attendance");
-        // const result4 = await collection3.findOne({
-        //     userId: result._id,
-        //     date: todayDate
-        //   });
-        
-        // result.presentToday = result4? true : false;
+        if(result.welcome){
+            const result4 = await collection.updateOne(
+                { _id: result._id },
+                { $unset: { welcome: "" } }
+            );
+        }
 
         delete result?.password;
         delete result?.passwordHash;
