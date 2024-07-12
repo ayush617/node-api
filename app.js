@@ -3,6 +3,7 @@ const corsMiddleware = require('./middlewares/cors');
 const authRoutes = require('./routes/authRoutes');
 const leadRoutes = require('./routes/leadsRoutes');
 const crudRoutes = require('./routes/crudRoutes');
+const emailRoutes = require('./routes/emailRoutes');
 const { connectToDb } = require('./models/db');
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(corsMiddleware);
 
 app.use(express.json());
 
+app.use('/', emailRoutes);
 app.use('/', authRoutes);
 app.use('/', leadRoutes);
 app.use('/', crudRoutes);
