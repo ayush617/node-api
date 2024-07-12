@@ -9,8 +9,8 @@ router.post('/signout', signout);
 router.post('/auth', auth);
 
 // Route to initiate the OAuth process and get the authorization URL
-router.get('/generate-token', authorize);
+// router.get('/generate-token', authorize);
 // Route to handle the callback and save the token
-router.get('/oauth2callback', getAccessToken);
+// router.get('/oauth2callback', getAccessToken);
 
 module.exports = router;
