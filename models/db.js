@@ -8,10 +8,10 @@ const uri = process.env.MONGODB_URI;
 let client;
 let db;
 
-const connectToDb = async () => {
+const connectToDb = async (dbName) => {
     try {
         client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-        db = client.db('mini-coders');
+        // db = client.db('mini-coders');
         console.log('Connected to MongoDB');
     } catch (err) {
         console.error('Error connecting to MongoDB:', err);
@@ -19,7 +19,12 @@ const connectToDb = async () => {
     }
 };
 
-const getDb = () => db;
+const getDb = (dbName='mini-coders') => {
+    if (!client) {
+        throw new Error('Client not initialized. Call connectToDb first.');
+    }
+    return client.db(dbName);
+};
 
 const closeDbConnection = () => {
     if (client) {
